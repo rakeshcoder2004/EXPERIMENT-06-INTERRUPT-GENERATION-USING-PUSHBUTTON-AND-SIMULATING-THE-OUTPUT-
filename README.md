@@ -34,15 +34,36 @@ One important thing to note here is that same number pins are connected to line 
 
 Now each of these lines EXTI0-EXTI15 can be used to trigger an interrupt on different modes of the signal : rising edge, falling edge or rising_falling edge.
 ## Procedure:
-1. Select 2 pins and configure them as interrupt and output
-2. Configure the interrupt pin in pull up mode
-3. Make the necessary modification in RCC and clock
-4. Write the interrupt function
-5. Make the design in proteus
-6. Run the project
+Open a new STM32 Project.
+
+Selecting GPIO Ports
+
+PA9 -> GPIO EXTI9
+
+PA11 -> GPIO Output
+
+Configure the PA9 Port at Pull up Mode followed by Click NVIC function and select enable.
+
+Select RCC function followed by click High speed clock -> Crystal/ceramic Resonator.
+
+Select Clock configuration followed by Select -> input frequency -> HSE -> Enable css
+
+Remove error using Resolve clock issue and generate the code.
+
+define the callback function.
+
+Build Debug and Create 'hex.file'
+
+Open a new Proteus Project.
+
+Select ports STM32F401RB, LED and Push Button.
+
+Connect PA9 to Push Button and PA11 to LED.
+
+Check for execution of the output using Push Button option.
    
 ## STM 32 CUBE PROGRAM :
-```c
+```
 #include "main.h"
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
